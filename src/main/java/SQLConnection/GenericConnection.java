@@ -116,17 +116,7 @@ public class GenericConnection {
 
     }
 
-
-    public void createTable(String table_name){
-        try {
-            PreparedStatement create = this.connection.prepareStatement("CREATE TABLE IF NOT EXISTS  " + table_name + "(id int NOT NULL AUTO_INCREMENT, first varchar(255), last varchar(255), PRIMARY KEY(id))");
-            create.executeUpdate();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    // miscellaneous
+    // static methods to process ResultSet
     public static int getColumnsNumber(ResultSet result) throws SQLException {
         ResultSetMetaData metadata = result.getMetaData();
         int columnNumber = metadata.getColumnCount();
@@ -149,20 +139,6 @@ public class GenericConnection {
             columnsTypeName.add(result.getMetaData().getColumnTypeName(i));
         }
         return columnsTypeName;
-    }
-
-    public static List<Map<String, Object>> resultSetToList(ResultSet rs) throws SQLException {
-        ResultSetMetaData md = rs.getMetaData();
-        int columns = md.getColumnCount();
-        List<Map<String, Object>> rows = new ArrayList<Map<String, Object>>();
-        while (rs.next()){
-            Map<String, Object> row = new LinkedHashMap<String, Object>(columns);
-            for(int i = 1; i <= columns; ++i){
-                row.put(md.getColumnName(i), rs.getObject(i));
-            }
-            rows.add(row);
-        }
-        return rows;
     }
 
     public Map<String, ArrayList<Object>> getColumns(ResultSet result) throws SQLException{
@@ -204,24 +180,6 @@ public class GenericConnection {
                 column.add(result.getObject(columnName));
             }
         return column;
-    }
-
-//    public static java.sql.Array getColumn(ResultSet result, String columnName) throws SQLException {
-//        try {
-//            java.sql.Array column = result.getArray(1);
-//            return column;
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            return null;
-//        }
-//    }
-
-
-    // TODO: delete section
-    // debugging methods
-    public void printdebug(){
-        System.out.println(this.url);
-        System.out.println(this.driver);
     }
 
 }
