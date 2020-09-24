@@ -36,6 +36,14 @@
         <lombok.version>1.18.8</lombok.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub stefano-v37 Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/stefano-v37/sql-connection</url>
+        </repository>
+    </distributionManagement>
+
 
 
 
