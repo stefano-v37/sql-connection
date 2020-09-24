@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>org.stefano-v37</groupId>
     <artifactId>sql-connection</artifactId>
-    <version>0.0</version>
+    <version>0.0.0</version>
 
     <dependencies>
         <dependency>
