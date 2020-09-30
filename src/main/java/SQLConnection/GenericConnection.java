@@ -97,7 +97,15 @@ public class GenericConnection {
         }
     }
 
+    public Map<String, List> executeSQL(String sqlcode, Map _return) throws SQLException {
+        _return = getColumns(executeSQL(sqlcode, true));
+        System.out.println("Data Stored in \"Map\"");
+        return _return;
+    }
+
     public ResultSet executeSQL(String sqlcode, Boolean _return){
+        System.out.println("Executing:");
+        System.out.println(sqlcode);
         if (_return){
             try {
                 Statement statement = this.connection.createStatement();
