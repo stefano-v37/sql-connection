@@ -141,13 +141,13 @@ public class GenericConnection {
         return columnsTypeName;
     }
 
-    public Map<String, ArrayList<Object>> getColumns(ResultSet result) throws SQLException{
+    public Map<String, List<Object>> getColumns(ResultSet result) throws SQLException{
         int columns = getColumnsNumber(result);
         List columnsLabels = getColumnsLabels(result);
-        System.out.println(columns);
+//        System.out.println(columns);
 
 
-        Map<String, ArrayList<Object>> df = new LinkedHashMap<String, ArrayList<Object>>(columns);
+        Map<String, List<Object>> df = new LinkedHashMap<String, List<Object>>(columns);
         for (int i = 0; i < columns; i++) {
             df.put((String)columnsLabels.get(i), new ArrayList<>());
         }
@@ -173,7 +173,7 @@ public class GenericConnection {
 
     // tricky, because ResultSet cursor cannot be set back on .beforeFirst(), it's possible using a different statement which happens to be reducing perfomance
     public <T> List<T> getColumn(ResultSet result, String columnName) throws SQLException{
-        ArrayList column = new ArrayList<T>();
+        List column = new ArrayList<T>();
         // check condition and apply method that moves
             while (result.next()){
                 System.out.println("ok");

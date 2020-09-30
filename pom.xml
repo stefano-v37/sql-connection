@@ -6,7 +6,7 @@
 
     <groupId>com.stefano-v37</groupId>
     <artifactId>sql-connection</artifactId>
-    <version>0.0.0</version>
+    <version>0.1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -43,8 +43,6 @@
             <url>https://maven.pkg.github.com/stefano-v37/sql-connection</url>
         </repository>
     </distributionManagement>
-
-
 
 
 </project>
